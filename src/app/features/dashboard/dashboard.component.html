@@ -1,0 +1,36 @@
+<h1>Dashboard</h1>
+
+<button (click)="dashboardService.logout()">
+    Logout
+</button>
+
+<h2>My Addresses</h2>
+
+<p-table [value]="pageResult?.content || []" [paginator]="true" [loading]="loading" [rows]="pageResult?.size"
+    [totalRecords]="pageResult?.totalElements || 0" [lazy]="true" (onLazyLoad)="loadAddresses($event)">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:20%">Street</th>
+            <th style="width:10%">Number</th>
+            <th style="width:20%">Complement</th>
+            <th style="width:15%">City</th>
+            <th style="width:10%">State</th>
+            <th style="width:15%">Zip Code</th>
+            <th style="width:20%">User</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-address>
+        <tr>
+            <td>{{ address.street }}</td>
+            <td>{{ address.number }}</td>
+            <td>{{ address.complement }}</td>
+            <td>{{ address.city }}</td>
+            <td>{{ address.state }}</td>
+            <td>{{ address.zipCode }}</td>
+            <td>{{ address.user.name }} ({{ address.user.email }})</td>
+        </tr>
+    </ng-template>
+
+</p-table>
