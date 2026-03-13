@@ -28,6 +28,9 @@ export class DashboardService {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+  }
+
+  navigateToAddressForm() {
+    this.router.navigate(['/address-form']);
   }
 }

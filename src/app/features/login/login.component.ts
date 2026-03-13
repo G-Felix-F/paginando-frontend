@@ -22,20 +22,19 @@ export class LoginComponent {
     ) { }
 
     login() {
-
-        this.authService.login({
-            email: this.data.email,
-            password: this.data.password
-        }).subscribe({
-            next: () => {
-                console.log("Login realizado!");
-                this.router.navigate(['/dashboard']);
-            },
-            error: err => {
-                console.log("Erro no login", err);
-            }
-        });
-
+        this.authService.login(this.data)
+            .subscribe({
+                next: () => {
+                    console.log("Login realizado!");
+                    this.router.navigate(['/dashboard']);
+                },
+                error: err => {
+                    console.log("Erro no login", err);
+                }
+            });
     }
 
+    navigateToRegister() {
+        this.router.navigate(['/register']);
+    }
 }

@@ -1,11 +1,13 @@
+<input type="name" [(ngModel)]="data.name" placeholder="Name">
+
 <input type="email" [(ngModel)]="data.email" placeholder="Email">
 
 <input type="password" [(ngModel)]="data.password" placeholder="Password">
 
-<button (click)="login()">
-    Login
+<button (click)="register()">
+    Register
 </button>
 
-<button (click)="navigateToRegister()">
-    Go to Register
+<button (click)="navigateToLogin()">
+    Go to Login
 </button>

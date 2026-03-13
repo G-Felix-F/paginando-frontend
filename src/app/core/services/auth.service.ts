@@ -3,8 +3,10 @@ import { Injectable, OnInit } from '@angular/core';
 import { TokenService } from './token.service';
 import { LoginRequest } from '../../shared/models/login/login-request';
 import { LoginResponse } from '../../shared/models/login/login-response';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { RegisterRequest } from '../../shared/models/login/register-request';
+import { RegisterResponse } from '../../shared/models/login/register-response';
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +30,12 @@ export class AuthService {
       );
   }
 
+  register(data: RegisterRequest): Observable<RegisterResponse> {
+    return this.http.post<RegisterResponse>(`${this.API}/register`, data);
+  }
+
   logout() {
     this.tokenService.removeToken();
     this.router.navigate(['/login']);
-  }
-
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('token');
   }
 }

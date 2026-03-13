@@ -4,6 +4,10 @@
     Logout
 </button>
 
+<button (click)="dashboardService.navigateToAddressForm()">
+    Go to Address Form
+</button>
+
 <h2>My Addresses</h2>
 
 <p-table [value]="pageResult?.content || []" [paginator]="true" [loading]="loading" [rows]="pageResult?.size"

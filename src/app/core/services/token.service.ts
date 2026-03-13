@@ -20,6 +20,6 @@ export class TokenService {
     }
 
     isAuthenticated(): boolean {
-        return this.getToken() != null;
+        return this.getToken() != null || false;
     }
 }

@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div *ngFor="let field of fields">
+
+        <p-float-label>
+
+            <input pInputText [id]="field.name" [type]="field.type" [formControlName]="field.name"
+                [placeholder]="field.placeholder" autocomplete="off" />
+
+            <label [for]="field.name">
+                {{ field.label }}
+            </label>
+
+        </p-float-label>
+
+    </div>
+
+    <button type="submit">
+        Submit
+    </button>
+
+</form>
